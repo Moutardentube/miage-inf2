@@ -17,29 +17,13 @@
         </style>
     </head>
     <body>
-        <h1>Liste des livres</h1>
+        <h1>${book.getTitle()}</h1>
         <br/>
-        <c:if test="${books.size() > 0}">
-            <table class="table table-bordered table-striped">
-                <tr>
-                    <th>ISBN</th>
-                    <th>Nom du livre</th>
-                    <th>Auteur(s)</th>
-                    <th>Prix</th>
-                </tr>
-                <c:forEach items="${books}" var="book">
-                    <tr>
-                        <td>${book.getIsbn()}</td>
-                        <td><a href="${context}/book/${book.getIsbn()}">${book.getTitle()}</a></td>
-                        <td>
-                            <c:forEach items="${book.getAuthors()}" var="author">
-                            ${author.gestLastName()} ${author.getFirstName()}
-                            </c:forEach>
-                        </td>
-                        <td>${book.getPrice()}</td>
-                    </tr>
-                </c:forEach>
-            </table>
-        </c:if>
+        <p>
+            NOT IMPLEMENTED YET!
+        </p>
+        <p>
+            <a href="${context}/book/${id}">Retour</a>
+        </p>
     </body>
 </html>

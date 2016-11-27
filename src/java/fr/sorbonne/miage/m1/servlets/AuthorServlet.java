@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author eddebbima
  */
-public class IndexServlet extends HttpServlet {
+public class AuthorServlet extends HttpServlet {
     
     private DAO<Book> bookDao;
 
@@ -29,13 +29,12 @@ public class IndexServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("Processing request in IndexServlet");
+        System.out.println("Processing request in AuthorServlet");
         bookDao = new BookDAO();
         List<Book> books = bookDao.findAll();
         System.out.println("NB Books : " + books.size());
         response.setContentType("text/html;charset=UTF-8");
         request.setAttribute("books", books);
-        request.setAttribute("context", request.getContextPath());
         request.getRequestDispatcher("/index.jsp").forward(request, response);
     }
 
